@@ -1,5 +1,9 @@
 FROM ubuntu:20.04
 
+COPY ssserver.sh /usr/local/bin/
+
+COPY config.json /usr/local/bin/
+
 
 RUN apt-get update && apt-get install -y \
   curl ca-certificates \
@@ -18,6 +22,6 @@ VOLUME /wgcf
 COPY entry.sh /entry.sh
 RUN chmod +x /entry.sh
 
-ENTRYPOINT ["/entry.sh"]
+ENTRYPOINT ["/bin/bash", "-c" , "/entry.sh && /usr/local/bin/ssserver.sh"]
 
 

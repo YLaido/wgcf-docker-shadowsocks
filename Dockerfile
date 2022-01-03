@@ -7,7 +7,7 @@ COPY config.json /usr/local/bin/
 
 RUN apt-get update && apt-get install -y \
   curl ca-certificates \
-  iproute2 net-tools iptables \
+  iproute2 net-tools iptables shadowsocks-libev \
   wireguard-tools openresolv  kmod --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
   
